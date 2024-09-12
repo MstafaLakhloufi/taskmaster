@@ -1,26 +1,26 @@
 import React from 'react';
 import TaskItem from './TaskItem';
+import styled from 'styled-components';
 
-function TaskList({ tasks = [], editTask, deleteTask }) {
+const TaskListContainer = styled.ul`
+  list-style: none;
+  padding: 0;
+  width: 80%; /* Adjust as needed */
+`;
+
+const TaskList = ({ tasks, onToggleComplete, onDeleteTask }) => {
   return (
-    <div>
-      <h2>Your Tasks</h2>
-      {tasks.length === 0 ? (
-        <p>No tasks available. Start by adding a new task!</p>
-      ) : (
-        <ul>
-          {tasks.map(task => (
-            <TaskItem
-              key={task.id}
-              task={task}
-              editTask={() => editTask(task)}
-              deleteTask={() => deleteTask(task.id)}
-            />
-          ))}
-        </ul>
-      )}
-    </div>
+    <TaskListContainer>
+      {tasks.map((task) => (
+        <TaskItem 
+          key={task.id} 
+          task={task} 
+          onToggleComplete={onToggleComplete}
+          onDeleteTask={onDeleteTask}
+        />
+      ))}
+    </TaskListContainer>
   );
-}
+};
 
 export default TaskList;

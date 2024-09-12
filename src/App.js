@@ -1,47 +1,92 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import styled, { createGlobalStyle } from 'styled-components';
+import Header from './components/Header';
 import TaskList from './components/TaskList';
-import AddTask from './components/AddTask';
-import EditTask from './components/EditTask';
-import Login from './components/Login';
-import Register from './components/Register';
-import Dashboard from './components/Dashboard';
-import Navigation from './components/Navigation';
-import ProtectedRoute from './components/ProtectedRoute';
-import './App.css';
+import AddTaskForm from './components/AddTaskForm';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 
-function App() {
-  const [user, setUser] = useState(null);
+const GlobalStyle = createGlobalStyle`
+  body {
+    font-family: sans-serif;
+    margin: 0;
+  }
+`;
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      setUser({ token });
-    }
-  }, []);
+const AppContainer = styled.div`
+  font-family: sans-serif;
+  background-image: linear-gradient(to right, #74ebd5, #acb6e5); /* Example gradient */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  padding: 20px;
+`;
 
-  const logout = () => {
-    setUser(null);
-    localStorage.removeItem('token');
-    window.location.href = '/login';
+const App = () => {
+  const [tasks, setTasks] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
+
+  const addTask = (newTask) => {
+    setTasks([...tasks, { ...newTask, id: Date.now(), completed: false }]);
+  };
+
+  const toggleComplete = (taskId) => {
+    setTasks(tasks.map((task) =>
+      task.id === taskId ? { ...task, completed: !task.completed } : task
+    ));
+  };
+
+  const deleteTask = (taskId) => {
+    setTasks(tasks.filter((task) => task.id !== taskId));
+  };
+
+  const handleLogin = (user) => {
+    // Here you would typically make an API call to authenticate the user
+    // For now, let's just simulate a successful login
+    setIsLoggedIn(true);
+    setCurrentUser(user);
+  };
+
+  const handleSignup = (newUser) => {
+    // Here you would typically make an API call to create a new user
+    // For now, let's just log the new user data
+    console.log("New user signed up:", newUser);
+    // You might want to redirect to the login page or display a success message here
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setCurrentUser(null);
   };
 
   return (
     <Router>
-      <div className="App">
-        <Navigation user={user} logout={logout} />
+      <GlobalStyle />
+      <AppContainer>
+        <Header isLoggedIn={isLoggedIn} onLogout={handleLogout} currentUser={currentUser} />
         <Routes>
-          <Route path="/" element={user ? <Navigate to="/dashboard" /> : <Navigate to="/login" />} />
-          <Route path="/login" element={<Login setUser={setUser} />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/dashboard" element={<ProtectedRoute user={user}><Dashboard user={user} /></ProtectedRoute>} />
-          <Route path="/tasks" element={<ProtectedRoute user={user}><TaskList /></ProtectedRoute>} />
-          <Route path="/add-task" element={<ProtectedRoute user={user}><AddTask /></ProtectedRoute>} />
-          <Route path="/edit-task" element={<ProtectedRoute user={user}><EditTask /></ProtectedRoute>} />
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login onLogin={handleLogin} />} />
+          <Route path="/signup" element={<Signup onSignup={handleSignup} />} />
+          <Route 
+            path="/tasks" 
+            element={isLoggedIn ? ( 
+              <>
+                <AddTaskForm onAddTask={addTask} />
+                <TaskList tasks={tasks} onToggleComplete={toggleComplete} onDeleteTask={deleteTask} />
+              </>
+            ) : (
+              <Navigate to="/login" replace /> 
+            )}
+          />
         </Routes>
-      </div>
+      </AppContainer>
     </Router>
   );
-}
+};
 
 export default App;
