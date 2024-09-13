@@ -149,7 +149,7 @@ const Home = () => {
           </TeamMemberItem>
         </TeamMemberList>
 
-        <a href="https://github.com/salmaneben/taskmaster" target="_blank">View on GitHub</a>
+        <a href="https://github.com/MstafaLakhloufi/taskmaster" target="_blank">View on GitHub</a>
       </AboutSection>
 
     </HomeContainer>
