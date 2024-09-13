@@ -136,20 +136,20 @@ const Home = () => {
           <TeamMemberItem>
             <TeamMemberImage src="https://avatars.githubusercontent.com/u/133282548?v=4" alt="Salmane's Profile" />
             <h4>Salmane Ben Yakhlaf</h4>
-            <SocialLink href="https://www.linkedin.com/in/your-linkedin-profile" target="_blank">LinkedIn</SocialLink> |
-            <SocialLink href="https://github.com/your-github-profile" target="_blank">GitHub</SocialLink> |
-            <SocialLink href="https://twitter.com/your-twitter-profile" target="_blank">Twitter</SocialLink>
+            <SocialLink href="https://www.linkedin.com/in/salmane-b-a20787158/" target="_blank">LinkedIn</SocialLink> |
+            <SocialLink href="https://github.com/salmaneben" target="_blank">GitHub</SocialLink> |
+            <SocialLink href="https://x.com/Salmanemks" target="_blank">X</SocialLink>
           </TeamMemberItem>
           <TeamMemberItem>
             <TeamMemberImage src="https://avatars.githubusercontent.com/u/111161472?v=4" alt="El Mustapha's Profile" />
             <h4>El Mustapha Lakhloufi</h4>
-            <SocialLink href="https://www.linkedin.com/in/el-mustapha-lakhloufi-profile" target="_blank">LinkedIn</SocialLink> | 
-            <SocialLink href="https://github.com/el-mustapha-lakhloufi-profile" target="_blank">GitHub</SocialLink> | 
-            <SocialLink href="https://twitter.com/el-mustapha-lakhloufi-profile" target="_blank">Twitter</SocialLink> 
+            <SocialLink href="https://www.linkedin.com/in/el-mustapha-lakhloufi-3278bb207/" target="_blank">LinkedIn</SocialLink> | 
+            <SocialLink href="https://github.com/MstafaLakhloufi" target="_blank">GitHub</SocialLink> | 
+            <SocialLink href="https://x.com/EL_Lakhloufi" target="_blank">X</SocialLink> 
           </TeamMemberItem>
         </TeamMemberList>
 
-        <a href="https://github.com/your-github-repo" target="_blank">View on GitHub</a>
+        <a href="https://github.com/salmaneben/taskmaster" target="_blank">View on GitHub</a>
       </AboutSection>
 
     </HomeContainer>
