@@ -1,5 +1,7 @@
-Task Master
-Introduction
+## Task Master
+
+## Introduction:
+
 Task Master is a task management application designed to help users stay organized and increase productivity. It allows users to add, view, and manage tasks effectively. The application includes features for user authentication and task tracking.
 
 Deployed Site: [Task Master Live Demo](https://mstafalakhloufi.github.io/taskmaster/)
