@@ -1,6 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'; // Importing React
+import styled from 'styled-components'; // Importing styled-components for styling
 
+// Styled component for individual task items
 const TaskItemContainer = styled.li`
   background-color: white;
   padding: 15px;
@@ -14,16 +15,21 @@ const TaskItemContainer = styled.li`
   }
 `;
 
+// TaskItem component definition
 const TaskItem = ({ task, onToggleComplete, onDeleteTask }) => {
   return (
     <TaskItemContainer className={task.completed ? 'completed' : ''}>
+      {/* Checkbox to mark task as complete/incomplete */}
       <input 
         type="checkbox" 
-        checked={task.completed} 
-        onChange={() => onToggleComplete(task.id)} 
+        checked={task.completed} // Checked state based on task completion
+        onChange={() => onToggleComplete(task.id)} // Toggle task completion when checkbox changes
       />
+      {/* Display task title */}
       <h3>{task.title}</h3>
+      {/* Display task description */}
       <p>{task.description}</p>
+      {/* Button to delete the task */}
       <button onClick={() => onDeleteTask(task.id)}>Delete</button>
     </TaskItemContainer>
   );

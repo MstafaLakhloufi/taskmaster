@@ -1,13 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLinkedin, faGithub, faXTwitter} from '@fortawesome/free-brands-svg-icons';
 
-// Styled Components
+// Container for the entire home page layout
 const HomeContainer = styled.div`
   text-align: center;
   padding: 50px;
 `;
 
+// Title component with custom font size and margin
 const Title = styled.h2`
   font-size: 2.5rem;
   margin-bottom: 20px;
@@ -17,7 +20,7 @@ const Description = styled.p`
   font-size: 1.2rem;
   margin-bottom: 30px;
 `;
-
+// Button styling for "Get Started" with a background color and padding
 const GetStartedButton = styled.button`
   background-color: #007bff;
   color: white;
@@ -28,6 +31,7 @@ const GetStartedButton = styled.button`
   font-size: 1.1rem;
 `;
 
+// Cover image component with background image properties
 const CoverImage = styled.div`
   width: 100%;
   height: 300px;
@@ -37,6 +41,7 @@ const CoverImage = styled.div`
   margin-bottom: 20px;
 `;
 
+// Section for displaying features with flexbox for layout
 const FeatureSection = styled.section`
   display: flex;
   justify-content: space-around;
@@ -58,6 +63,7 @@ const FeatureCard = styled.div`
   }
 `;
 
+// Icon style for the feature section
 const FeatureIcon = styled.span`
   font-size: 2rem; 
   margin-bottom: 10px;
@@ -67,6 +73,7 @@ const AboutSection = styled.section`
   text-align: center;
 `;
 
+// Team members' list with flexbox for layout
 const TeamMemberList = styled.ul`
   list-style: none;
   padding: 0;
@@ -74,11 +81,13 @@ const TeamMemberList = styled.ul`
   justify-content: center;
 `;
 
+// Individual team member styling with margin
 const TeamMemberItem = styled.li`
   margin: 0 20px;
   text-align: center;
 `;
 
+// Image styling for team member's profile pictures
 const TeamMemberImage = styled.img`
   width: 100px;
   height: 100px;
@@ -86,14 +95,48 @@ const TeamMemberImage = styled.img`
   object-fit: cover;
   margin-bottom: 10px;
 `;
-
-const SocialLink = styled.a`
-  /* Style your social links here */
+// Container for social media links
+const SocialLinksContainer = styled.div`
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  padding: 20px;
 `;
+
+// Individual social media link styles
+const SocialLink = styled.a`
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  color: #333;
+  text-align: center;
+  line-height: 40px;
+  font-size: 20px;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+  
+  &:hover {
+    background-color: #007bff;
+    color: white;
+  }
+
+  &:active {
+    background-color: #0056b3;
+    color: white;
+  }
+`;
+
+// Placeholder for social media links
+//const SocialLink = styled.a`
+  /* Style your social links here */
+//`;
 
 const Home = () => {
   return (
     <HomeContainer>
+      {/* Cover image at the top of the page */}
       <CoverImage />
 
       <Link to="/login"> 
@@ -103,7 +146,7 @@ const Home = () => {
       <Title>Task Master</Title> 
       <Description>Organize your tasks, boost your productivity</Description> 
 
-      {/* Feature Section */}
+      {/* Feature Section: Displays the main features of the app */}
       <FeatureSection>
         <FeatureCard>
           <FeatureIcon>✅</FeatureIcon> 
@@ -122,7 +165,7 @@ const Home = () => {
         </FeatureCard>
       </FeatureSection>
 
-      {/* About Section */}
+      {/* About Section: Describes the project and its purpose */}
       <AboutSection>
         <h2>About the Project</h2>
         <p>
@@ -130,22 +173,34 @@ const Home = () => {
           We wanted to build an intuitive and user-friendly application that makes task management a breeze. 
           This is a Portfolio Project for Holberton School, showcasing our skills in React, routing, and state management.
         </p>
-
+      {/* Displaying team members with profile pictures and social links */}
         <h3>Meet the Team</h3>
         <TeamMemberList>
           <TeamMemberItem>
-            <TeamMemberImage src="https://avatars.githubusercontent.com/u/133282548?v=4" alt="Salmane's Profile" />
+          <TeamMemberImage src="https://avatars.githubusercontent.com/u/133282548?v=4" alt="Salmane's Profile" />
             <h4>Salmane Ben Yakhlaf</h4>
-            <SocialLink href="https://www.linkedin.com/in/salmane-b-a20787158/" target="_blank">LinkedIn</SocialLink> |
-            <SocialLink href="https://github.com/salmaneben" target="_blank">GitHub</SocialLink> |
-            <SocialLink href="https://x.com/Salmanemks" target="_blank">X</SocialLink>
+            <SocialLink href="https://www.linkedin.com/in/salmane-b-a20787158/" target="_blank" aria-label="Salmane's LinkedIn">
+              <FontAwesomeIcon icon={faLinkedin} />
+            </SocialLink> |
+            <SocialLink href="https://github.com/salmaneben" target="_blank" aria-label="Salmane's GitHub">
+              <FontAwesomeIcon icon={faGithub} />
+            </SocialLink> |
+            <SocialLink href="https://x.com/Salmanemks" target="_blank" aria-label="Salmane's X">
+            <FontAwesomeIcon icon={faXTwitter} />
+            </SocialLink>
           </TeamMemberItem>
           <TeamMemberItem>
             <TeamMemberImage src="https://avatars.githubusercontent.com/u/111161472?v=4" alt="El Mustapha's Profile" />
             <h4>El Mustapha Lakhloufi</h4>
-            <SocialLink href="https://www.linkedin.com/in/el-mustapha-lakhloufi-3278bb207/" target="_blank">LinkedIn</SocialLink> | 
-            <SocialLink href="https://github.com/MstafaLakhloufi" target="_blank">GitHub</SocialLink> | 
-            <SocialLink href="https://x.com/EL_Lakhloufi" target="_blank">X</SocialLink> 
+            <SocialLink href="https://www.linkedin.com/in/el-mustapha-lakhloufi-3278bb207/" target="_blank" aria-label="El Mustapha's LinkedIn">
+              <FontAwesomeIcon icon={faLinkedin} />
+            </SocialLink> | 
+            <SocialLink href="https://github.com/MstafaLakhloufi" target="_blank" aria-label="El Mustapha's GitHub">
+              <FontAwesomeIcon icon={faGithub} />
+            </SocialLink> | 
+            <SocialLink href="https://x.com/EL_Lakhloufi" target="_blank" aria-label="El Mustapha's X">
+            <FontAwesomeIcon icon={faXTwitter} />
+            </SocialLink> 
           </TeamMemberItem>
         </TeamMemberList>
 
@@ -156,4 +211,5 @@ const Home = () => {
   );
 };
 
+// Export the Home component to be used in other parts of the app
 export default Home;
