@@ -10,77 +10,64 @@ Final Project Blog Article: Read More About Task Master
 
 Author(s): El Mustapha Lakhloufi & Salmane Ben Yakhlaf
 
-Installation
+<h2>Installation<h2>
 To run Task Master locally, follow these steps:
 
-Clone the repository:
-
-bash
-Copy code
+1. Clone the repository:
+```sh
 git clone https://github.com/MstafaLakhloufi/taskmaster.git
-Navigate to the project directory:
-
-bash
-Copy code
+```
+2. Navigate to the project directory:
+```sh
 cd task-master
-
-Install dependencies:
-
-bash
-Copy code
+```
+3. Install dependencies:
+```sh
 npm install
-Start the development server:
-
-bash
-Copy code
+```
+4. Start the development server:
+```sh
 npm start
-
-Open your browser and go to:
-
-arduino
-Copy code
+```
+5. Open your browser and go to:
+```
 http://localhost:3000
 
-Usage:
+```
+<h2>Usage<h2>
 
-Home Page: View general information and navigate to different sections of the app.
-Login: Authenticate yourself to access task management features.
-Signup: Register a new account if you don't have one.
-Tasks: Add, view, and manage your tasks.
-Contributing
+- Home Page: View general information and navigate to different sections of the app.
+- Login: Authenticate yourself to access task management features.
+- Signup: Register a new account if you don't have one.
+- Tasks: Add, view, and manage your tasks.
+
+<h2>Contributing<h2>
 Contributions are welcome! To contribute to Task Master:
 
-Fork the repository.
-
-Create a new branch for your feature or bug fix:
-bash
-Copy code
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix:
 git checkout -b feature/your-feature-name
 
-Make your changes and commit them:
-bash
-Copy code
+3. Make your changes and commit them:
 git commit -am 'Add new feature'
 
-Push to the branch:
-bash
-Copy code
+4. Push to the branch:
 git push origin feature/your-feature-name
 
-Create a new Pull Request with a clear description of your changes.
+5. Create a new Pull Request with a clear description of your changes.
 
-Related Projects
+<h2>Related Projects<h2>
 Project 1: Todo List
 Project 2: Task Manager
 
-Licensing
+<h2>Licensing<h2>
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-Screenshot: 
+<h2>Screenshot<h2> 
 
 ![App Screenshot](./images/Screenshot%202024-09-19%20013417.png)
 
-Notes:
+<h2>Notes<h2>
 Deployed Site: https://mstafalakhloufi.github.io/taskmaster/
 
 My Final Project Blog Article: https://www.linkedin.com/pulse/building-task-master-journey-enhancing-productivity-react-lakhloufi-boyre/
